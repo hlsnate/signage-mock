@@ -2,11 +2,12 @@
   import { onMount } from "svelte"
   import Person from "./lib/Person.svelte"
   import ImagePanel from "./lib/ImagePanel.svelte"
-  import { getJoke, getPerson } from "./util"
+  import { getClock, getJoke, getPerson } from "./util"
 
   let joke = "Loading..."
   let person: any = null
   let countdown = 0
+  let clock = getClock()
   const imageUpdateSeconds = 7
   const dataUpdateSeconds = 30
 
@@ -27,13 +28,24 @@
           .catch(console.error)
       }
     }, 1000)
-    return () => clearInterval(updateInterval) // unmount callback
+    const clockInterval = setInterval(() => {
+      clock = getClock()
+    }, 1000)
+    return () => {
+      // unmount callback
+      clearInterval(updateInterval)
+      clearInterval(clockInterval)
+    }
   })
 </script>
 
 <main>
   <section class="display">
     <ImagePanel duration={imageUpdateSeconds} />
+  </section>
+  <section class="clock">
+    <p>{clock.date}</p>
+    <h2>{clock.time}</h2>
   </section>
   <section class="other">
     <Person {person} />

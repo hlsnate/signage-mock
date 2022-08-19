@@ -16,6 +16,7 @@ main {
   gap: 10px;
   grid-template-columns: 2fr minmax(300px, 1fr);
   grid-template-areas:
+    "image clock"
     "image other"
     "joke joke";
 }
@@ -38,6 +39,20 @@ footer {
   display: grid;
   place-items: center;
   padding: 1rem;
+}
+.clock {
+  grid-area: clock;
+  padding: 1rem;
+  font-weight: bold;
+  text-align:center;
+}
+.clock p {
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+.clock h2 {
+  font-size: 3rem;
+  margin: 0;
 }
 .other {
   grid-area: other;
