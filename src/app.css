@@ -1,0 +1,68 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Normally these are scoped in svelte components;
+   moved here to simplify example code */
+main {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 2fr minmax(300px, 1fr);
+  grid-template-areas:
+    "image other"
+    "joke joke";
+}
+section {
+  border-radius: 0.5em;
+  border: 1px solid #888;
+  overflow: hidden;
+}
+footer {
+  font-style: italic;
+  padding: 0.5rem;
+}
+.display {
+  grid-area: image;
+  min-height: 300px
+}
+.joke {
+  grid-area: joke;
+  background-color: #def;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.other {
+  grid-area: other;
+  padding: 1rem;
+}
+.panel-wrap {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 96% 4%;
+}
+.bar {
+  background-color: yellow;
+  bottom: 0;
+}
+.progress {
+  background-color: rgb(72, 182, 72);
+  height: 100%;
+}
+.person {
+  text-align: center;
+}
+.person img {
+  border-radius: 50%;
+}
+.person h2 {
+  font-size: 1.3rem;
+}
